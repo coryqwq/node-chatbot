@@ -1,5 +1,5 @@
 //invoke instance of the controller interface of the web speech api for voice recognition
-const SpeechRecognition = indow.SpeechRecognition ||
+const SpeechRecognition = window.SpeechRecognition ||
 window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
@@ -26,6 +26,18 @@ recognition.addEventListener('result', (e) => {
 
 });
 
+//enable the browser to speak the text
+function synthVoice(text) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance();
+    utterance.text = text;
+    synth.speak(utterance);
+  }
+
+//get response from server and call function
+socket.confidence('bot reply', funciton(replyText){
+    synthVoice(replyText);
+});
 
 
 
