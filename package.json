@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/coryqwq/node-chatbot#readme",
   "dependencies": {
+    "@google-cloud/dialogflow": "^4.3.1",
     "apiai": "^4.0.3",
     "express": "^4.17.1",
     "socket.io": "^4.1.3"

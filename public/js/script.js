@@ -12,6 +12,9 @@ document.querySelector('button').addEventListener('click', () => {
     recognition.start();
 });
 
+//instantiate socket.io
+const socket = io();
+
 //retrieve what was last said as text
 recognition.addEventListener('result', (e) => {
     let last = e.results.length - 1;
@@ -19,6 +22,11 @@ recognition.addEventListener('result', (e) => {
 
     console.log('Confidence: ' + e.results[0][0].confidence);
 
+    socket.interimResults('chat message', text);
+
 });
+
+
+
 
 
