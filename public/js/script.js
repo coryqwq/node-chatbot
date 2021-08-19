@@ -32,12 +32,15 @@ function synthVoice(text) {
     const utterance = new SpeechSynthesisUtterance();
     utterance.text = text;
     synth.speak(utterance);
-  }
+}
 
 //get response from server and call function
-socket.confidence('bot reply', funciton(replyText){
+socket.on('bot reply', funciton(replyText), {
     synthVoice(replyText);
+
 });
+
+
 
 
 

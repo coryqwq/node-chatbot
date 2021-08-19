@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
     res.sendFile('index.html');
 });
 
+const io = require('socket.io')(server);
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
 //initialize api.ai with access token
 require('dotenv').config()
 const apiai = require('apiai')(process.env.APIAI_TOKEN);
